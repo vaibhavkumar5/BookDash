@@ -60,6 +60,15 @@ const BookTable = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const handleRequestSort=(event, property)=>{
+    const isAscending= (orderBy=== property && order === 'asc')
+    setOrderBy(property)
+    setOrder(isAscending? "desc" : 'asc')
+
+  }
+  const createSortHandler = (property)=>(event) =>{
+    handleRequestSort(event,property)
+  }
 
   return (
     <>
@@ -99,10 +108,10 @@ const BookTable = () => {
               <TableRow>
                 {columns.map((column) => (
                   <TableCell
-                    style={{ backgroundColor: "#F18070", color: "white" }}
+                    sx={{ backgroundColor: "#F18070", color: "white" }}
                     key={column.id}
                   >
-                    <TableSortLabel active={true} direction="asc">
+                    <TableSortLabel active={orderBy === "title"} direction={orderBy == "title" ? order: 'asc'} onClick={createSortHandler("title")} >
                       {column.name}
                     </TableSortLabel>
                   </TableCell>
