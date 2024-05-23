@@ -10,6 +10,7 @@ export const fetchBooks = async (query) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/search.json`, { params });
     console.log("API Response:", response.data); // Log the API response
+    
     return response.data;
   } catch (error) {
     console.error("Error fetching books:", error);
