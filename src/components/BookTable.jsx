@@ -24,6 +24,10 @@ const BookTable = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [submitQuery, setSubmitQuery] = useState("");
 
+  
+  
+
+  
   useEffect(() => {
     const loadBooks = async () => {
       if (submitQuery) {
@@ -34,6 +38,9 @@ const BookTable = () => {
     };
     loadBooks();
   }, [submitQuery]);
+
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -97,7 +104,7 @@ const BookTable = () => {
           }}
         >
           <CSVLink data={books} headers={headers} filename={"Books_Data.csv"}>
-            Downlaoad CSV
+            Download CSV
           </CSVLink>
         </Button>
       </form>
@@ -111,7 +118,7 @@ const BookTable = () => {
                     sx={{ backgroundColor: "#F18070", color: "white" }}
                     key={column.id}
                   >
-                    <TableSortLabel active={orderBy === "title"} direction={orderBy == "title" ? order: 'asc'} onClick={createSortHandler("title")} >
+                    <TableSortLabel active={orderBy === columns} direction={orderBy == "title" ? order: 'asc'} onClick={createSortHandler("title")} >
                       {column.name}
                     </TableSortLabel>
                   </TableCell>

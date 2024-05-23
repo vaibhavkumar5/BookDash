@@ -87,7 +87,7 @@ const AuthorTable = () => {
           }}
         >
         <CSVLink  data={books} headers={headers}  filename={"Author_Data.csv"}>
-            Downlaoad CSV
+             Download CSV
         </CSVLink>
         </Button>
       </form>
