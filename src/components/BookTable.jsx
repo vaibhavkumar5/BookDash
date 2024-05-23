@@ -13,6 +13,7 @@ import {
   TableSortLabel,
   TextField,
 } from "@mui/material";
+import { CSVLink } from "react-csv";
 
 const BookTable = () => {
   const [books, setBooks] = useState([]);
@@ -45,6 +46,12 @@ const BookTable = () => {
     { id: "first_publish_year", name: " first publish year" },
     { id: "ratings_average", name: "average rating" },
   ];
+  const headers = [
+    { key: "title", label: "Book title" },
+    { key: "author_name", label: "Author Name" },
+    { key: "first_publish_year", label: " first publish year" },
+    { key: "ratings_average", label: "average rating" },
+  ];
 
   const handleChangePage = (event, newpage) => {
     setPage(newpage);
@@ -73,8 +80,16 @@ const BookTable = () => {
         >
           Search
         </Button>
-        <Button sx={{ backgroundColor: "#F18070", color: "white", "&:hover": { color: "red", backgroundColor: "#F3C6B7" }, }}>
-          Downlaoad CSV
+        <Button
+          sx={{
+            backgroundColor: "#F18070",
+            color: "white",
+            "&:hover": { color: "red", backgroundColor: "#F3C6B7" },
+          }}
+        >
+          <CSVLink data={books} headers={headers} filename={"Books_Data.csv"}>
+            Downlaoad CSV
+          </CSVLink>
         </Button>
       </form>
       <Paper sx={{ width: "100%", marginTop: "20px" }}>

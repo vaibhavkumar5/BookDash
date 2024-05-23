@@ -13,6 +13,7 @@ import {
   TableSortLabel,
   TextField,
 } from "@mui/material";
+import { CSVLink } from "react-csv";
 
 const AuthorTable = () => {
   const [books, setBooks] = useState([]);
@@ -45,6 +46,11 @@ const AuthorTable = () => {
     { id: "top_work", name: " Top Work" },
     
   ];
+  const headers =[
+    { key: "name", label: "Name" },
+    { key: "birth_date", label: "Author DOB" },
+    { key: "top_work", label: " Top Work" },
+  ]
 
   const handleChangePage = (event, newpage) => {
     setPage(newpage);
@@ -80,7 +86,9 @@ const AuthorTable = () => {
             "&:hover": { color: "red", backgroundColor: "#F3C6B7" },
           }}
         >
-          Downlaoad CSV
+        <CSVLink  data={books} headers={headers}  filename={"Author_Data.csv"}>
+            Downlaoad CSV
+        </CSVLink>
         </Button>
       </form>
       <Paper sx={{ width: "100%", marginTop: "20px" }}>
