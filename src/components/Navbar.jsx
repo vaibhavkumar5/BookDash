@@ -12,11 +12,11 @@ const Navbar = () => {
               <Link to="/" className="flex ms-2 md:me-24">
                 <img
                   src={logo}
-                  className="h-9  me-3 rounded-lg"
+                  className="h-9 me-3 rounded-lg"
                   alt="Nua Logo"
                 />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap text-[#F18070]">
-                  Nua Women
+                  Nua Woman
                 </span>
               </Link>
             </div>

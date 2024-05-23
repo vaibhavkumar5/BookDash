@@ -9,8 +9,7 @@ export const fetchBooks = async (query) => {
   };
   try {
     const response = await axios.get(`${API_BASE_URL}/search.json`, { params });
-    console.log("API Response:", response.data); // Log the API response
-    
+
     return response.data;
   } catch (error) {
     console.error("Error fetching books:", error);
@@ -18,18 +17,17 @@ export const fetchBooks = async (query) => {
   }
 };
 
-export const fetchAuthors = async(query)=>{
-  const params={
+export const fetchAuthors = async (query) => {
+  const params = {
     q: query,
   };
   try {
-    const response = await axios.get(`${API_BASE_URL}/search/authors.json`, { params });
-    console.log("API Response:", response.data); // Log the API response
+    const response = await axios.get(`${API_BASE_URL}/search/authors.json`, {
+      params,
+    });
     return response.data;
-    
   } catch (error) {
     console.error("Error fetching author:", error);
     return { docs: [], numFound: 0 };
-    
   }
-}
+};
